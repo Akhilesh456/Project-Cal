@@ -183,7 +183,7 @@ int main(){
         // this part deals with trig. functions
         else{
             if(querie[0] == 'e'){
-                cout << pow(E, stoi(querie.substr(2`, querie.length()-1))) << endl;
+                cout << pow(E, stoi(querie.substr(2, querie.length()-1))) << endl;
                 continue;
             }
             string func = querie.substr(0, 3);

@@ -122,15 +122,15 @@ long double cot(long double x){
 
 // gives value of pi fractions
 long double pi_val(string querie){
-    long double div = stod(querie.substr(querie.find('/')+1, querie.length()-3)), mul;
-    if(querie[0] == 'p')
-        mul = 1;
-    else
+    long double div=1, res, mul=1;
+    if(querie.find('/') != querie.npos)
+        div = stod(querie.substr(querie.find('/')+1, querie.length()-3)), mul;
+    if(querie[0] != 'p')
         mul = stod(querie.substr(0, querie.find('p')));
-    long double res = (long double)(mul*PI)/div;
-    while(res > 2*PI)
-        res -= 2*PI;
-    return (long double)(mul*PI)/div;
+    res = (long double)(mul*PI)/div;
+    while(res >= 2*PI)
+        res = res - 2*PI;
+    return res;
 }
 
 void lower(string &str){

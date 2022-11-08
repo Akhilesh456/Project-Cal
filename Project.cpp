@@ -32,6 +32,8 @@ vector<string> split(string querie){
         ans[1] = querie.substr(spl+1, n-spl);
     else    
         ans[1] = "";
+    // the else case is for when factorial function is inputed\
+    // there will be no second number
     ans[2] = querie[spl];
 
     return ans;
@@ -118,12 +120,21 @@ long double cot(long double x){
     return c/s;
 }
 
+void lower(string &str){
+    int n = str.length();
+    for(int i=0; i<n; i++){
+        if((int)str[i]>64 && (int)str[i]<91)
+            str[i] += 32;
+    }
+}
+
 int main(){
     while(true){
         // inputing the querie 
         cout << ">>";
         string querie;
         getline(cin, querie);
+        lower(querie);
 
         // removes white space
         remove_whitespace(querie);
@@ -131,43 +142,33 @@ int main(){
         // to exit the programme
         if(querie[0]=='q' || querie[0]=='Q')
             break;
-
         // this section deals with simple arithmatic queries
         if((((int)querie[0])>47 && ((int)querie[0])<58) || (int)querie[0]==45/*for negitive numbers*/){
             vector<string> ans = split(querie);
             double num1 = stod(ans[0]), num2;
+            // factorial case (no second number)
             if(ans[1] != "")
                 num2 = stod(ans[1]);
-            if(ans[2] == "+"){
+            // all the arithmatic operations
+            if(ans[2] == "+")
                 cout << num1+num2 << endl;
-                continue;
-            }
-            if(ans[2] == "-"){
+            else if(ans[2] == "-")
                 cout << num1-num2 << endl;
-                continue;
-            }
-            if(ans[2] == "/"){
-                double res = num1/(double)num2;
-                cout << res << endl;
-                continue;
-            }
-            if(ans[2] == "*"){
+            else if(ans[2] == "/")
+                cout << num1/num2 << endl;
+            else if(ans[2] == "*")
                 cout << num1*num2 << endl;
-                continue;
-            }
-            if(ans[2] == "^"){
+            else if(ans[2] == "^")
                 cout << pow(num1, num2) << endl;
-                continue;
-            }
-            if(ans[2] == "!"){
+            else if(ans[2] == "!")
                 cout << fac(num1) << endl;
-                continue;
-            }
         }
 
+        // this part deals with trig. functions
         else{
             string func = querie.substr(0, 3);
-            long double num;
+            long double num, x;
+            // for the calculations like sin(pi/2), cos(3pi/2) etc
             if(querie.substr(4, 3) == "pi)")
                 num = PI;
             else if(querie.substr(4, 4) == "pi/2")
@@ -184,54 +185,26 @@ int main(){
                 num = -PI/4;
             else    
                 num = stod(querie.substr(4, querie.length()-5));
-            if(func == "sin"){
-                long double x = sin(num);
-                if(x<10e-7 && x>-10e-7)
-                    cout << 0 << endl;
-                else
-                    cout << x << endl;
-                continue;
-            }
-            if(func == "cos"){
-                long double x = cos(num);
-                if(x<10e-7 && x>-10e-7)
-                    cout << 0 << endl;
-                else
-                    cout << x << endl;
-                continue;
-            }
-            if(func == "tan"){
-                long double x = tan(num);
-                if(x<10e-7 && x>-10e-7)
-                    cout << 0 << endl;
-                else
-                    cout << x << endl;
-                continue;
-            }
-            if(func == "cot"){
-                long double x = cot(num);
-                if(x<10e-7 && x>-10e-7)
-                    cout << 0 << endl;
-                else
-                    cout << x << endl;
-                continue;
-            }
-            if(func == "sec"){
-                long double x = sec(num);
-                if(x<10e-7 && x>-10e-7)
-                    cout << 0 << endl;
-                else
-                    cout << x << endl;
-                continue;
-            }
-            if(func == "csc"){
-                long double x = csc(num);
-                if(x<10e-7 && x>-10e-7)
-                    cout << 0 << endl;
-                else
-                    cout << x << endl;
-                continue;
-            }
+            // trig. functions
+            if(func == "sin")
+                x = sin(num);
+            else if(func == "cos")
+                x = cos(num);
+            else if(func == "tan")
+                x = tan(num);
+            else if(func == "cot")
+                x = cot(num);
+            else if(func == "sec")
+                x = sec(num);
+            else if(func == "csc")
+                x = csc(num);
+            // this is for the cases like sin(pi), as we can't take inf
+            // taylor series terms, sin(pi) will not be equal to 0
+            // this fixes it.
+            if(x<10e-7 && x>-10e-7)
+                cout << 0 << endl;
+            else
+                cout << x << endl;
         }
     }
 }

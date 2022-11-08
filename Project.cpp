@@ -127,6 +127,9 @@ long double pi_val(string querie){
         mul = 1;
     else
         mul = stod(querie.substr(0, querie.find('p')));
+    long double res = (long double)(mul*PI)/div;
+    while(res > 2*PI)
+        res -= 2*PI;
     return (long double)(mul*PI)/div;
 }
 

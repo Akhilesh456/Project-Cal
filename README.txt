@@ -9,7 +9,7 @@ addition, subtration, multiplication and division on TWO
 rational numbers. 
 Eg:
 >> 3+2
-4
+5
 >> 4.5^3
 91.125
 >> 5/4

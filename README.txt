@@ -3,7 +3,7 @@ TechSoc'26 task-1. Calculator.
 
 # Instructions!!
 
-This Calculator console application.
+This is Calculator console application.
 This application performs basic arithmetic like
 addition, subtration, multiplication and division on TWO 
 rational numbers. 

@@ -120,6 +120,7 @@ long double cot(long double x){
     return c/s;
 }
 
+// gives value of pi fractions
 long double pi_val(string querie){
     long double div = stod(querie.substr(querie.find('/')+1, querie.length()-3)), mul;
     if(querie[0] == 'p')
@@ -143,6 +144,7 @@ int main(){
         cout << ">>";
         string querie;
         getline(cin, querie);
+        // converts all to lower case
         lower(querie);
 
         // removes white space

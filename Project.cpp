@@ -181,7 +181,7 @@ int main(){
             else if(querie.substr(4, 5) == "5pi/4")
                 num = 5*PI/4;
             else if(querie.substr(4, 5) == "7pi/4")
-                num = 7*PI/4;
+                num = -PI/4;
             else    
                 num = stod(querie.substr(4, querie.length()-5));
             if(func == "sin"){

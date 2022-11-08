@@ -34,7 +34,7 @@ Eg:
 >>cot(2)
 -0.457658
 
-You can also write 7 fractions of pi (pi, pi/2, 3pi/2, pi/4, 3pi/4, 5pi/4, 7pi/4) directly in the calculator
+You can also write fractions of pi directly in the calculator
 >>Sin(pi)
 0
 >>cos(pi)
@@ -46,6 +46,8 @@ NOT DEFINED
 1
 >>Tan(pi)
 0
+>>sin(pi/3)
+0.866025
 (It is not case sensitive!!)
 
 To quit write (q or Q)!

@@ -120,6 +120,15 @@ long double cot(long double x){
     return c/s;
 }
 
+long double pi_val(string querie){
+    long double div = stod(querie.substr(querie.find('/')+1, querie.length()-3)), mul;
+    if(querie[0] == 'p')
+        mul = 1;
+    else
+        mul = stod(querie.substr(0, querie.find('p')));
+    return (long double)(mul*PI)/div;
+}
+
 void lower(string &str){
     int n = str.length();
     for(int i=0; i<n; i++){
@@ -169,20 +178,8 @@ int main(){
             string func = querie.substr(0, 3);
             long double num, x;
             // for the calculations like sin(pi/2), cos(3pi/2) etc
-            if(querie.substr(4, 3) == "pi)")
-                num = PI;
-            else if(querie.substr(4, 4) == "pi/2")
-                num = PI/2;
-            else if(querie.substr(4, 5) == "3pi/2")
-                num = 3*PI/2;
-            else if(querie.substr(4, 4) == "pi/4")
-                num = PI/4;
-            else if(querie.substr(4, 5) == "3pi/4")
-                num = 3*PI/4;
-            else if(querie.substr(4, 5) == "5pi/4")
-                num = 5*PI/4;
-            else if(querie.substr(4, 5) == "7pi/4")
-                num = -PI/4;
+            if(querie.find("pi") != querie.npos)
+                num = pi_val(querie.substr(4, querie.length()-5));
             else    
                 num = stod(querie.substr(4, querie.length()-5));
             // trig. functions

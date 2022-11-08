@@ -4,6 +4,7 @@
 #include <vector>
 
 #define PI 3.14159265358979323
+#define E 2.718281828459045
 using namespace std;
 
 void remove_whitespace(string &str){
@@ -181,6 +182,10 @@ int main(){
 
         // this part deals with trig. functions
         else{
+            if(querie[0] == 'e'){
+                cout << pow(E, stoi(querie.substr(2`, querie.length()-1))) << endl;
+                continue;
+            }
             string func = querie.substr(0, 3);
             long double num, x;
             // for the calculations like sin(pi/2), cos(3pi/2) etc

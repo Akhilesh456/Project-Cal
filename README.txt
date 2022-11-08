@@ -7,7 +7,6 @@ This Calculator console application.
 This application performs basic arithmetic like
 addition, subtration, multiplication and division on TWO 
 rational numbers. 
-Eg:
 >> 3+2
 5
 >> 4.5^3
@@ -19,7 +18,6 @@ Eg:
 (Don't worry about the whitespace!!)
 
 It also does factorial functions.
-Eg:
 >> 4!
 24
 >> 6!
@@ -28,7 +26,6 @@ Eg:
 120
 
 And, it also does basic trignometric functions (sin, cos, tan, cot, sec, csc)
-Eg:
 >>sin(3)
 0.14112
 >>cot(2)
@@ -49,5 +46,11 @@ NOT DEFINED
 >>sin(pi/3)
 0.866025
 (It is not case sensitive!!)
+
+And also, it calculates the natural powers of e
+>>e^1
+2.71828
+>>e^4
+54.5982
 
 To quit write (q or Q)!

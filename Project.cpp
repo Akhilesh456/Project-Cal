@@ -191,8 +191,11 @@ int main(){
             // for the calculations like sin(pi/2), cos(3pi/2) etc
             if(querie.find("pi") != querie.npos)
                 num = pi_val(querie.substr(4, querie.length()-5));
-            else    
+            else{
                 num = stod(querie.substr(4, querie.length()-5));
+                while(num > 2*PI)
+                    num -= 2*PI;
+            }
             // trig. functions
             if(func == "sin")
                 x = sin(num);
